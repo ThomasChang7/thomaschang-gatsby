@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const Body = styled.div`
   max-width: 100%;
+  background-color: #ffffff;
 `;
 
 export default Body;
