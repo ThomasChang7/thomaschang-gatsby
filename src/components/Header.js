@@ -8,8 +8,9 @@ const SiteHeader = styled.header`
   display: flex;
   position: fixed;
   z-index: 9001;
-  flex-wrap: wrap;
+
   top: 20px;
+  overflow: hidden;
 `;
 
 const Name = styled.h1`
@@ -26,30 +27,39 @@ const Name = styled.h1`
 const NameLink = styled(Link)`
   text-decoration: none;
   color: #111111;
+
+  display: block;
+  float: right;
+  text-align: center;
 `;
 
 const NavList = styled.ul`
   list-style-type: none;
   display: flex;
   margin: 0;
-  padding: 0;
+  padding-left: 15%;
 `;
 
 const ListItem = styled.li`
   display: inline;
   margin: 0;
+  padding: 14px 16px;
 `;
 
 const NavLink = styled(Link)`
   text-decoration: none;
   font-size: 14px;
-  padding: 15px 10px 18px;
+
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 5px;
   display: block;
   transition: all 0.3s ease;
   color: #111111;
+  &:hover {
+    border-top: 4px solid #aaaaaa;
+    border-bottom: 4px solid #aaaaaa;
+  }
 `;
 
 const HeaderLinks = [
