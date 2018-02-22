@@ -3,9 +3,6 @@ import Link from 'gatsby-link';
 
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
-  min-height: 100vh;
-  height: 100%;
-`;
+const Wrapper = styled.div``;
 
 export default Wrapper;

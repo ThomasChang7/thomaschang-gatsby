@@ -3,8 +3,6 @@ import Link from 'gatsby-link';
 
 import styled from 'styled-components';
 
-const Main = styled.div`
-  margin-top: 60px;
-`;
+const Main = styled.div``;
 
 export default Main;

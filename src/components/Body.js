@@ -3,9 +3,6 @@ import Link from 'gatsby-link';
 
 import styled from 'styled-components';
 
-const Body = styled.div`
-  max-width: 100%;
-  background-color: #ffffff;
-`;
+const Body = styled.div``;
 
 export default Body;

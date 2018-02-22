@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
-import HeroImage from '~/src/components/HeroImage';
-import HeroText from '~/src/components/HeroText';
+import styled from 'styled-components';
+import { Heading, Subheading } from '~/src/components/Typography';
+import Button from '~/src/components/Button';
+
 import Container from '~/src/components/Container';
+import Section from '../components/Section';
+import Image from 'gatsby-image';
+import img from '../images/hero.jpg';
+
+const HomeWrapper = styled.div`
+  position: relative;
+  margin-top: 100px;
+`;
 
 class IndexPage extends Component {
   constructor(props) {
@@ -10,17 +20,18 @@ class IndexPage extends Component {
   }
 
   render() {
+    const { heroImg } = this.props.data;
+
     return (
-      <Container>
-        <HeroImage
-          image={this.props.data.heroImg}
-          sizes={this.props.data.heroImg.sizes}
-        />
-        <HeroText>
-          <h1>Hi, I'm Thomas</h1>
-          <p>And I make things with code.</p>
-        </HeroText>
-      </Container>
+      <HomeWrapper>
+        <Container>
+          <Heading>My name is Thomas Chang</Heading>
+          <Subheading>Developer</Subheading>
+          <Button>
+            <Link to="/">Home</Link>
+          </Button>
+        </Container>
+      </HomeWrapper>
     );
   }
 }
