@@ -2,10 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  position: relative;
-  text-align: center;
-  color: white;
-  width: 100%;
+  width: 90%;
+  height: 98%;
+  margin: auto;
+  box-sizing: border-box;
 `;
-
 export default Container;

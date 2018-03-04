@@ -1,80 +1,92 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { media } from './Breakpoints';
 
-const SiteHeader = styled.header`
-  justify-content: space-between;
-  display: flex;
+const SiteHeader = styled.span`
   position: fixed;
-  z-index: 9001;
-
-  top: 20px;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style-type: none;
+  height: 4rem;
+  left: 0;
+  z-index: 1;
+  transition: all 0.5s ease;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-left: ${props => (props.fixed ? `5%` : `0`)};
+  top: ${props => (props.fixed ? `1rem` : `0`)};
+  width: ${props => (props.fixed ? `90%` : `100%`)};
+  background-color: ${props =>
+    props.fixed ? `rgba(255, 255, 255, 1)` : `rgba(242, 241, 245, 0.8)`};
+  box-shadow: ${props =>
+    props.fixed
+      ? `none`
+      : `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`};
 `;
 
-const Name = styled.h1`
+const NavWrapper = styled.ul`
+  flex: 1;
+  display: flex;
+  list-style-type: none;
   margin: 0;
-  top: 0;
-  text-transform: uppercase;
-  font-weight: 900;
-  letter-spacing: 5px;
-  font-size: 24px;
-  text-decoration: none;
-  font-weight: 900;
+  padding: 0;
+  justify-content: flex-end;
 `;
 
-const NameLink = styled(Link)`
-  text-decoration: none;
-  color: #111111;
+const NameWrapper = styled.div`
+  flex: 1;
+  display: flex;
+`;
 
-  display: block;
-  float: right;
+const Name = styled.p`
+  margin: 0;
+  margin-left: 1rem;
+  padding: 0;
+`;
+
+const NameLink = styled(Link)``;
+
+const Logo = styled.h3`
+  margin: 0;
+  padding: 0;
+  flex: 1;
   text-align: center;
 `;
 
-const NavList = styled.ul`
-  list-style-type: none;
-  display: flex;
-  margin: 0;
-  padding-left: 15%;
-`;
-
-const ListItem = styled.li`
-  display: inline;
-  margin: 0;
-  padding: 14px 16px;
+const NavItem = styled.li`
+  margin: 0 1rem;
+  font-size: 0.9em;
 `;
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  font-size: 14px;
-
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  display: block;
-  transition: all 0.3s ease;
-  color: #111111;
+  opacity: 0.4;
   &:hover {
-    border-top: 4px solid #aaaaaa;
-    border-bottom: 4px solid #aaaaaa;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  &.${`active`} {
+    opacity: 1;
   }
 `;
 
 const HeaderLinks = [
   {
+    name: 'Home',
+    url: '/'
+  },
+  {
     name: 'About',
     url: '/about'
   },
   {
-    name: 'Projects',
-    url: '/project'
+    name: 'Portfolio',
+    url: '/portfolio'
   },
-  {
-    name: 'Resume',
-    url: '/resume'
-  },
+
   {
     name: 'Blog',
     url: '/blog'
@@ -87,24 +99,29 @@ const HeaderLinks = [
 
 class Header extends Component {
   constructor(props) {
-    super();
+    super(props);
+
+    this.state = {
+      show: false
+    };
   }
+
   render() {
     return (
-      <SiteHeader>
-        <Name>
-          <NameLink to="/">Thomas Chang</NameLink>
-        </Name>
-
-        <nav>
-          <NavList>
-            {HeaderLinks.map(link => (
-              <ListItem>
-                <NavLink to={link.url}>{link.name}</NavLink>
-              </ListItem>
-            ))}
-          </NavList>
-        </nav>
+      <SiteHeader fixed={this.props.fixed}>
+        <NameWrapper>
+          <Name>Thomas Chang</Name>
+        </NameWrapper>
+        <Logo>TC</Logo>
+        <NavWrapper>
+          {HeaderLinks.map(link => (
+            <NavItem>
+              <NavLink activeClassName="active" exact to={link.url}>
+                {link.name}
+              </NavLink>
+            </NavItem>
+          ))}
+        </NavWrapper>
       </SiteHeader>
     );
   }
