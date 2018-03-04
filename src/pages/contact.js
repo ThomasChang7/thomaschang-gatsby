@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import FontAwesome from 'react-fontawesome';
 
 // Import Container component
 import Container from '../components/Container';
@@ -50,7 +49,7 @@ export default class Contact extends React.Component {
   render() {
     return (
       <Section centered>
-        <FontAwesome name="twitter" />
+        <div name="twitter" />
         <Container>
           <Heading>Say hello</Heading>
 
@@ -66,37 +65,37 @@ export default class Contact extends React.Component {
           <SocialMediaList>
             <li>
               <Link to="">
-                <FontAwesome name="twitter" />
+                <div name="twitter" />
               </Link>
             </li>
 
             <li>
               <Link to="">
-                <FontAwesome name="linkedin" />
+                <div name="linkedin" />
               </Link>
             </li>
 
             <li>
               <Link to="">
-                <FontAwesome name="behance" />
+                <div name="behance" />
               </Link>
             </li>
 
             <li>
               <Link to="">
-                <FontAwesome name="dribbble" />
+                <div name="dribbble" />
               </Link>
             </li>
 
             <li>
               <Link to="">
-                <FontAwesome name="github" />
+                <div name="github" />
               </Link>
             </li>
 
             <li>
               <Link to="">
-                <FontAwesome name="codepen" />
+                <div name="codepen" />
               </Link>
             </li>
           </SocialMediaList>

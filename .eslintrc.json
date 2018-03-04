@@ -4,9 +4,11 @@
     "prettier/react",
     "airbnb"
   ],
+  "parser": "babel-eslint",
   "plugins":[
    "prettier",
    "react",
+   "jsx-a11y",
    "import"
   ],
   "parserOptions":{
@@ -18,6 +20,7 @@
   },
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "node": true
   }
 }

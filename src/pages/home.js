@@ -9,12 +9,9 @@ import Section from '../components/Section';
 import Image from 'gatsby-image';
 import img from '../images/hero.jpg';
 
-const HomeWrapper = styled.div`
-  position: relative;
-  margin-top: 100px;
-`;
+const HomeWrapper = styled.div``;
 
-class IndexPage extends Component {
+class HomePage extends Component {
   constructor(props) {
     super();
   }
@@ -36,7 +33,7 @@ class IndexPage extends Component {
   }
 }
 
-export default IndexPage;
+export default HomePage;
 
 export const query = graphql`
   query GatsbyHeroImageQuery {

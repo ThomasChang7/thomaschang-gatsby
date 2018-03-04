@@ -13,10 +13,7 @@ import Section from '../components/Section';
 // Import typography components
 import { Heading, Subheading, Text } from '../components/Typography';
 
-const PortfolioWrapper = styled(Section)`
-  padding-top: 120px;
-  padding-bottom: 80px;
-`;
+const PortfolioWrapper = styled(Section)``;
 const PortfolioGrid = styled.div`
   padding-bottom: 32px;
   display: flex;
