@@ -10,7 +10,7 @@ const SiteHeader = styled.span`
   align-items: center;
   justify-content: space-around;
   list-style-type: none;
-  height: 3.5rem;
+  height: 4rem;
   left: 0;
   z-index: 1;
   transition: all 0.5s ease;
@@ -76,7 +76,7 @@ const NavLink = styled(Link)`
 const HeaderLinks = [
   {
     name: 'Home',
-    url: '/home'
+    url: '/'
   },
   {
     name: 'About',
@@ -116,7 +116,7 @@ class Header extends Component {
         <NavWrapper>
           {HeaderLinks.map(link => (
             <NavItem>
-              <NavLink activeClassName="active" to={link.url}>
+              <NavLink activeClassName="active" exact to={link.url}>
                 {link.name}
               </NavLink>
             </NavItem>

@@ -9,18 +9,16 @@ import Section from '../components/Section';
 import Image from 'gatsby-image';
 import img from '../images/hero.jpg';
 
-const HomeWrapper = styled.div``;
+const IndexWrapper = styled.div``;
 
-class HomePage extends Component {
+class IndexPage extends Component {
   constructor(props) {
     super();
   }
 
   render() {
-    const { heroImg } = this.props.data;
-
     return (
-      <HomeWrapper>
+      <IndexWrapper>
         <Container>
           <Heading>My name is Thomas Chang</Heading>
           <Subheading>Developer</Subheading>
@@ -28,12 +26,12 @@ class HomePage extends Component {
             <Link to="/">Home</Link>
           </Button>
         </Container>
-      </HomeWrapper>
+      </IndexWrapper>
     );
   }
 }
 
-export default HomePage;
+export default IndexPage;
 
 export const query = graphql`
   query GatsbyHeroImageQuery {
