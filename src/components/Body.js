@@ -5,8 +5,8 @@ import styled from 'styled-components';
 
 const Body = styled.div`
   position: relative;
-  padding-top: 6rem;
-  padding-bottom: 30px;
+  padding-top: 8rem;
+  padding-bottom: 40px;
   min-height: calc(100vh - 30px);
 `;
 

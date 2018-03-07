@@ -4,13 +4,12 @@ import Link from 'gatsby-link';
 import styled, { css } from 'styled-components';
 import { media } from './Breakpoints';
 
-const SiteHeader = styled.span`
+const SiteHeader = styled.header`
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  list-style-type: none;
-  height: 4rem;
+  height: 3rem;
   left: 0;
   z-index: 1;
   transition: all 0.5s ease;
@@ -41,10 +40,12 @@ const NameWrapper = styled.div`
   display: flex;
 `;
 
-const Name = styled.p`
+const Name = styled.h3`
   margin: 0;
   margin-left: 1rem;
   padding: 0;
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
 `;
 
 const NameLink = styled(Link)``;
@@ -58,15 +59,18 @@ const Logo = styled.h3`
 
 const NavItem = styled.li`
   margin: 0 1rem;
-  font-size: 0.9em;
+  font-size: 0.85em;
+  letter-spacing: 0.05rem;
 `;
 
 const NavLink = styled(Link)`
   text-decoration: none;
   opacity: 0.4;
+  transition: all 0.3s ease;
+  &:after {
+  }
   &:hover {
     opacity: 1;
-    transition: opacity 0.3s ease;
   }
   &.${`active`} {
     opacity: 1;
@@ -112,11 +116,16 @@ class Header extends Component {
         <NameWrapper>
           <Name>Thomas Chang</Name>
         </NameWrapper>
-        <Logo>TC</Logo>
+        <Logo>&lt;t/c&gt;</Logo>
         <NavWrapper>
-          {HeaderLinks.map(link => (
+          {HeaderLinks.map((link, index) => (
             <NavItem>
-              <NavLink activeClassName="active" exact to={link.url}>
+              <NavLink
+                activeClassName="active"
+                id={link.name}
+                exact
+                to={link.url}
+              >
                 {link.name}
               </NavLink>
             </NavItem>

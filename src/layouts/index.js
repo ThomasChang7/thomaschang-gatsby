@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+
 import { injectGlobal } from 'styled-components';
 
 import Header from '~/src/components/Header';
@@ -31,7 +32,6 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
-
 }
 `;
 

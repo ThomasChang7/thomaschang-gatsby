@@ -3,9 +3,14 @@ module.exports = {
     title: 'Thomas Chang Portfolio'
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography.js`
+      }
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
-    `gatsby-plugin-typography`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -20,6 +25,7 @@ module.exports = {
         name: 'images'
       }
     },
+
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp'
   ]

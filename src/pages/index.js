@@ -11,6 +11,32 @@ import img from '../images/hero.jpg';
 
 const IndexWrapper = styled.div``;
 
+const Hero = styled.div`
+  background-image: url(${props => props.image});
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 55vh;
+  display: flex;
+`;
+
+const HeroText = styled.div`
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: auto;
+  > h1 {
+    color: white;
+    text-shadow: 2px 2px 3px #aaaaaa;
+  }
+
+  > h2 {
+    color: white;
+    text-shadow: 2px 2px 3px #aaaaaa;
+  }
+`;
+
 class IndexPage extends Component {
   constructor(props) {
     super();
@@ -20,11 +46,12 @@ class IndexPage extends Component {
     return (
       <IndexWrapper>
         <Container>
-          <Heading>My name is Thomas Chang</Heading>
-          <Subheading>Developer</Subheading>
-          <Button>
-            <Link to="/">Home</Link>
-          </Button>
+          <Hero image={img}>
+            <HeroText>
+              <h1>My name is Thomas Chang</h1>
+              <h2>Software Engineer</h2>
+            </HeroText>
+          </Hero>
         </Container>
       </IndexWrapper>
     );
@@ -32,13 +59,3 @@ class IndexPage extends Component {
 }
 
 export default IndexPage;
-
-export const query = graphql`
-  query GatsbyHeroImageQuery {
-    heroImg: imageSharp(id: { regex: "/hero/" }) {
-      sizes(maxWidth: 1240) {
-        ...GatsbyImageSharpSizes
-      }
-    }
-  }
-`;
