@@ -91,7 +91,7 @@ export default class Portfolio extends React.Component {
     return (
       <PortfolioWrapper>
         <Container>
-          <Heading>My work</Heading>
+          <Heading>&lt;portfolio&gt;</Heading>
 
           <Text>
             Selected examples of my work. If you want to see more, drop me an

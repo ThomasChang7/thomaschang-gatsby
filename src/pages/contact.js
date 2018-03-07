@@ -51,7 +51,7 @@ export default class Contact extends React.Component {
       <Section centered>
         <div name="twitter" />
         <Container>
-          <Heading>Say hello</Heading>
+          <Heading>&lt;contact&gt;</Heading>
 
           <Text>
             I'm available for freelance work. If you are interested in a new
