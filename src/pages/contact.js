@@ -13,6 +13,8 @@ import Section from '../components/Section';
 // Import typography components
 import { Heading, Text } from '../components/Typography';
 
+import { ColContainer, Row, Column } from '../components/RowColumn';
+
 const ContactLink = styled(Link)`
   margin-bottom: 32px;
   display: inline-block;
@@ -49,56 +51,66 @@ export default class Contact extends React.Component {
   render() {
     return (
       <Section centered>
-        <div name="twitter" />
         <Container>
-          <Heading>&lt;contact&gt;</Heading>
+          <ColContainer>
+            <Row>
+              <Heading>&lt;contact&gt;</Heading>
+            </Row>
+            <Row>
+              <Text>Let's talk! Feel free to shoot me a message!</Text>
+            </Row>
+            <Row>
+              <ContactLink to="tomchang93@gmail.com">
+                tomchang93@gmail.com
+              </ContactLink>
+            </Row>
+            <Row>
+              <ul>
+                <li>Github</li>
+                <li>LinkedIn</li>
+              </ul>
+            </Row>
 
-          <Text>
-            I'm available for freelance work. If you are interested in a new
-            project, collaboration, or just to chat, feel free to contact me.
-          </Text>
+            <Text>Follow me on the web:</Text>
 
-          <ContactLink to="">email@example.com</ContactLink>
+            <SocialMediaList>
+              <li>
+                <Link to="">
+                  <div name="twitter" />
+                </Link>
+              </li>
 
-          <Text>Follow me on the web:</Text>
+              <li>
+                <Link to="">
+                  <div name="linkedin" />
+                </Link>
+              </li>
 
-          <SocialMediaList>
-            <li>
-              <Link to="">
-                <div name="twitter" />
-              </Link>
-            </li>
+              <li>
+                <Link to="">
+                  <div name="behance" />
+                </Link>
+              </li>
 
-            <li>
-              <Link to="">
-                <div name="linkedin" />
-              </Link>
-            </li>
+              <li>
+                <Link to="">
+                  <div name="dribbble" />
+                </Link>
+              </li>
 
-            <li>
-              <Link to="">
-                <div name="behance" />
-              </Link>
-            </li>
+              <li>
+                <Link to="">
+                  <div name="github" />
+                </Link>
+              </li>
 
-            <li>
-              <Link to="">
-                <div name="dribbble" />
-              </Link>
-            </li>
-
-            <li>
-              <Link to="">
-                <div name="github" />
-              </Link>
-            </li>
-
-            <li>
-              <Link to="">
-                <div name="codepen" />
-              </Link>
-            </li>
-          </SocialMediaList>
+              <li>
+                <Link to="">
+                  <div name="codepen" />
+                </Link>
+              </li>
+            </SocialMediaList>
+          </ColContainer>
         </Container>
       </Section>
     );

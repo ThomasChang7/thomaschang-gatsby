@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
-
 import styled from 'styled-components';
+import email from '../images/email.svg';
 import github from '../images/github.svg';
+import linkedin from '../images/linkedin.svg';
 
 const FooterContainer = styled.footer`
   position: absolute;
@@ -16,6 +17,7 @@ const FooterContainer = styled.footer`
 const FooterWrapper = styled.ul`
   display: flex;
   list-style-type: none;
+
   align-items: center;
   margin: 0;
   padding: 0;
@@ -23,9 +25,15 @@ const FooterWrapper = styled.ul`
 
 const FooterItem = styled.li`
   display: inline;
-  justify-content: space-around;
-  margin: 0 1rem;
+  margin: 0 0.5rem 0;
+  padding: 0;
   opacity: 0.5;
+  line-height: 1;
+  transition: all 0.3s ease;
+  &:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
 `;
 class Footer extends Component {
   constructor(props) {
@@ -39,8 +47,14 @@ class Footer extends Component {
           <FooterItem>
             <img src={github} />
           </FooterItem>
-          <FooterItem>LinkedIn</FooterItem>
-          <FooterItem>Email</FooterItem>
+          <FooterItem>
+            <img src={linkedin} />
+          </FooterItem>
+
+          <FooterItem>
+            {/*<img src={email} />*/}
+            tomchang93@gmail.com
+          </FooterItem>
         </FooterWrapper>
       </FooterContainer>
     );

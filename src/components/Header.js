@@ -38,14 +38,24 @@ const NavWrapper = styled.ul`
 const NameWrapper = styled.div`
   flex: 1;
   display: flex;
+  position: relative;
 `;
 
 const Name = styled.h3`
   margin: 0;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   padding: 0;
   font-size: 1.3rem;
   letter-spacing: 0.1rem;
+  ${media.tablet`
+  margin-left: .1em;
+`};
+  ${media.desktop`
+  margin-left: .6em;
+`};
+  ${media.giant`
+  margin-left: .7em;
+`};
 `;
 
 const NameLink = styled(Link)``;
@@ -58,19 +68,54 @@ const Logo = styled.h3`
 `;
 
 const NavItem = styled.li`
-  margin: 0 1rem;
-  font-size: 0.85em;
-  letter-spacing: 0.05rem;
+  margin: 0 0.5em;
+  font-size: 1.3em;
+  position: relative;
+  display: inline-block;
+  ${media.phone`
+  font-size: .7em;
+`};
+  ${media.tablet`
+  font-size: .9em;
+  margin: 0 0.1em;
+`};
+  ${media.desktop`
+  margin: 0 0.6em;
+`};
+  ${media.giant`
+  margin: 0 .7em;
+  font-size: 1em;
+`};
+`;
+
+const Divider = styled.li`
+  margin: 0;
+  position: relative;
+  display: inline-block;
 `;
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  opacity: 0.4;
-  transition: all 0.3s ease;
+  opacity: 0.8;
+  transition: all 0.1s ease;
+  position: relative;
+  color: ${props => (props.color ? props.color : 'black')};
   &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #008080;
+    transition: width 0.2s ease;
   }
-  &:hover {
+  &:hover:after {
+    width: 100%;
+    left: 0;
     opacity: 1;
+    background: #008080;
   }
   &.${`active`} {
     opacity: 1;
@@ -87,7 +132,7 @@ const HeaderLinks = [
     url: '/about'
   },
   {
-    name: 'Portfolio',
+    name: 'Projects',
     url: '/portfolio'
   },
 
@@ -97,6 +142,10 @@ const HeaderLinks = [
   },
   {
     name: 'Contact',
+    url: '/contact'
+  },
+  {
+    name: 'CV',
     url: '/contact'
   }
 ];
@@ -114,21 +163,33 @@ class Header extends Component {
     return (
       <SiteHeader fixed={this.props.fixed}>
         <NameWrapper>
-          <Name>Thomas Chang</Name>
+          <Name>
+            <NavLink to="/" color="#008080">
+              Thomas Chang
+            </NavLink>
+          </Name>
         </NameWrapper>
-        <Logo>&lt;t/c&gt;</Logo>
+        <Logo>
+          <NavLink to="/" color="#484848">
+            &lt;t/c&gt;
+          </NavLink>
+        </Logo>
         <NavWrapper>
-          {HeaderLinks.map((link, index) => (
-            <NavItem>
-              <NavLink
-                activeClassName="active"
-                id={link.name}
-                exact
-                to={link.url}
-              >
-                {link.name}
-              </NavLink>
-            </NavItem>
+          {HeaderLinks.map((link, index, links) => (
+            <div>
+              <NavItem>
+                <NavLink
+                  activeClassName="active"
+                  id={link.name}
+                  exact
+                  to={link.url}
+                  color="#008080"
+                >
+                  {link.name}
+                </NavLink>
+              </NavItem>
+              {index !== links.length - 1 && <Divider>|</Divider>}
+            </div>
           ))}
         </NavWrapper>
       </SiteHeader>
