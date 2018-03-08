@@ -6,6 +6,14 @@ judahTheme.googleFonts = [
   {
     name: 'Raleway',
     styles: ['200', '400', '400i', '700']
+  },
+  {
+    name: 'Open Sans',
+    styles: ['200', '400', '400i', '700']
+  },
+  {
+    name: 'PT Sans Narrow',
+    styles: ['200', '300']
   }
 ];
 
@@ -19,26 +27,27 @@ judahTheme.plugins = [new CodePlugin()];
 
 judahTheme.overrideThemeStyles = ({ rhythm }) => ({
   h1: {
-    letterSpacing: rhythm(0.5),
+    letterSpacing: rhythm(0.3),
     fontSize: rhythm(2),
     fontWeight: 300,
     color: '#080808',
-    lineHeight: rhythm(2)
+    lineHeight: rhythm(4)
   },
   h2: {
     color: '#484848',
-    letterSpacing: rhythm(0.2),
+    letterSpacing: rhythm(0.1),
     fontSize: rhythm(1.5)
   },
   h3: {},
   a: {
-    color: '#006666',
+    color: 'black',
     lineHeight: rhythm(0.5)
   },
   p: {
     letterSpacing: rhythm(0.08),
     color: '#181818'
-  }
+  },
+  li: { fontFamily: 'PT Sans Narrow' }
 });
 
 const typography = new Typography(judahTheme);
