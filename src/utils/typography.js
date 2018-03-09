@@ -28,10 +28,9 @@ judahTheme.plugins = [new CodePlugin()];
 judahTheme.overrideThemeStyles = ({ rhythm }) => ({
   h1: {
     letterSpacing: rhythm(0.3),
-    fontSize: rhythm(2),
+    fontSize: rhythm(1.5),
     fontWeight: 300,
-    color: '#080808',
-    lineHeight: rhythm(4)
+    color: '#080808'
   },
   h2: {
     color: '#484848',

@@ -11,12 +11,13 @@ const Row = styled.div`
   justify-content: space-around;
   margin: auto;
   flex-wrap: wrap;
+  padding-bottom: 0;
 `;
 
 const Column = styled.div`
   flex: 1;
   display: flex-start;
-  padding: 1rem;
+  padding: 0 2rem;
 `;
 
 export { ColContainer, Row, Column };
