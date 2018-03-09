@@ -9,12 +9,12 @@ const SiteHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 3rem;
+  height: 2rem;
   left: 0;
   z-index: 1;
   transition: all 0.5s ease;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   margin-left: ${props => (props.fixed ? `5%` : `0`)};
   top: ${props => (props.fixed ? `1rem` : `0`)};
   width: ${props => (props.fixed ? `90%` : `100%`)};
@@ -160,6 +160,7 @@ class Header extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <SiteHeader fixed={this.props.fixed}>
         <NameWrapper>

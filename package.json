@@ -13,6 +13,7 @@
     "gatsby-plugin-styled-components": "^2.0.7",
     "gatsby-plugin-typography": "^1.7.17",
     "gatsby-source-filesystem": "^1.5.20",
+    "gatsby-transformer-remark": "^1.7.36",
     "gatsby-transformer-sharp": "^1.6.19",
     "react-click-outside": "^3.0.1",
     "react-collapse": "^4.0.3",

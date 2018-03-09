@@ -15,7 +15,7 @@ const Hero = styled.div`
   background-image: url(${props => props.image});
   background-size: cover;
   background-position: center;
-
+  width: 100%;
   height: 80vh;
   display: flex;
 `;
