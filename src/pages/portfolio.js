@@ -88,99 +88,69 @@ const PortfolioItemThumbnail = styled.img`
   object-fit: contain;
 `;
 
+const PortfolioText = styled.p``;
+
 export default class Portfolio extends React.Component {
   render() {
     return (
       <Container>
         <ColContainer>
           <Row>
-            <Heading>&lt;portfolio&gt;</Heading>
+            <Heading>&lt;projects&gt;</Heading>
+            <Heading>(Work in Progress)</Heading>
           </Row>
           <Row>
             <PortfolioItem href="">
               <PortfolioItemThumbnail
-                src="https://source.unsplash.com/z4CAuzwaXrM/600x600"
-                srcSet="https://source.unsplash.com/z4CAuzwaXrM/600x600 1x, https://source.unsplash.com/z4CAuzwaXrM/1200x1200 2x"
+                src="hhttp://via.placeholder.com/600x400"
+                srcSet="http://via.placeholder.com/600x400 1x, http://via.placeholder.com/1200x800 2x"
+                alt="Example of work"
+              />
+            </PortfolioItem>
+            <PortfolioText>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur.
+            </PortfolioText>
+          </Row>
+          <Row>
+            <PortfolioText>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur.
+            </PortfolioText>
+            <PortfolioItem href="">
+              <PortfolioItemThumbnail
+                src="hhttp://via.placeholder.com/600x400"
+                srcSet="http://via.placeholder.com/600x400 1x, http://via.placeholder.com/1200x800 2x"
                 alt="Example of work"
               />
             </PortfolioItem>
           </Row>
+          <Row>
+            <PortfolioItem href="">
+              <PortfolioItemThumbnail
+                src="hhttp://via.placeholder.com/600x400"
+                srcSet="http://via.placeholder.com/600x400 1x, http://via.placeholder.com/1200x800 2x"
+                alt="Example of work"
+              />
+            </PortfolioItem>
+            <PortfolioText>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur.
+            </PortfolioText>
+          </Row>
         </ColContainer>
-
-        <Text>
-          Selected examples of my work. If you want to see more, drop me an
-          email.
-        </Text>
-
-        <PortfolioGrid>
-          <PortfolioItem href="">
-            <PortfolioItemThumbnail
-              src="https://source.unsplash.com/-aDl1z8_nGY/600x600"
-              srcSet="https://source.unsplash.com/-aDl1z8_nGY/600x600 1x, https://source.unsplash.com/-aDl1z8_nGY/1200x1200 2x"
-              alt="Example of work"
-            />
-          </PortfolioItem>
-
-          <PortfolioItem href="">
-            <PortfolioItemThumbnail
-              src="https://source.unsplash.com/qvEwMfUX_DM/600x600"
-              srcSet="https://source.unsplash.com/qvEwMfUX_DM/600x600 1x, https://source.unsplash.com/qvEwMfUX_DM/1200x1200 2x"
-              alt="Example of work"
-            />
-          </PortfolioItem>
-
-          <PortfolioItem href="">
-            <PortfolioItemThumbnail
-              src="https://source.unsplash.com/9QjbejABFn8/600x600"
-              srcSet="https://source.unsplash.com/9QjbejABFn8/600x600 1x, https://source.unsplash.com/9QjbejABFn8/1200x1200 2x"
-              alt="Example of work"
-            />
-          </PortfolioItem>
-
-          <PortfolioItem href="">
-            <PortfolioItemThumbnail
-              src="https://source.unsplash.com/cDD83wV627U/600x600"
-              srcSet="https://source.unsplash.com/cDD83wV627U/600x600 1x, https://source.unsplash.com/cDD83wV627U/1200x1200 2x"
-              alt="Example of work"
-            />
-          </PortfolioItem>
-
-          <PortfolioItem href="">
-            <PortfolioItemThumbnail
-              src="https://source.unsplash.com/KDYcgCEoFcY/600x600"
-              srcSet="https://source.unsplash.com/KDYcgCEoFcY/600x600 1x, https://source.unsplash.com/KDYcgCEoFcY/1200x1200 2x"
-              alt="Example of work"
-            />
-          </PortfolioItem>
-
-          <PortfolioItem href="">
-            <PortfolioItemThumbnail
-              src="https://source.unsplash.com/oKfCxcKnCo8/600x600"
-              srcSet="https://source.unsplash.com/oKfCxcKnCo8/600x600 1x, https://source.unsplash.com/oKfCxcKnCo8/1200x1200 2x"
-              alt="Example of work"
-            />
-          </PortfolioItem>
-
-          <PortfolioItem href="">
-            <PortfolioItemThumbnail
-              src="https://source.unsplash.com/dClHqW-EfS8/600x600"
-              srcSet="https://source.unsplash.com/dClHqW-EfS8/600x600 1x, https://source.unsplash.com/dClHqW-EfS8/1200x1200 2x"
-              alt="Example of work"
-            />
-          </PortfolioItem>
-
-          <PortfolioItem href="">
-            <PortfolioItemThumbnail
-              src="https://source.unsplash.com/74elF-XSsPg/600x600"
-              srcSet="https://source.unsplash.com/74elF-XSsPg/600x600 1x, https://source.unsplash.com/74elF-XSsPg/1200x1200 2x"
-              alt="Example of work"
-            />
-          </PortfolioItem>
-        </PortfolioGrid>
-
-        <Text>Let's get in touch:</Text>
-
-        <Link href="mailto:email@example.com">email@example.com</Link>
       </Container>
     );
   }
