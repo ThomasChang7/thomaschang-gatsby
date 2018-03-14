@@ -48,6 +48,7 @@ class IndexPage extends Component {
         <Container>
           <Hero image={img}>
             <HeroText>
+              <h1>Site Under Construction</h1>
               <h1>My name is Thomas Chang</h1>
               <h2>Software Engineer</h2>
             </HeroText>
