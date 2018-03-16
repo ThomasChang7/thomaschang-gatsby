@@ -51,7 +51,7 @@ export default class Contact extends React.Component {
   render() {
     return (
       <Section centered>
-        <Container>
+        <div>
           <ColContainer>
             <Row>
               <Heading>&lt;contact&gt;</Heading>
@@ -111,7 +111,7 @@ export default class Contact extends React.Component {
               </li>
             </SocialMediaList>
           </ColContainer>
-        </Container>
+        </div>
       </Section>
     );
   }

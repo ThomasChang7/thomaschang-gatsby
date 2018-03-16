@@ -31,46 +31,43 @@ class About extends React.Component {
   render() {
     return (
       <Section centered>
-        <Container>
-          <ColContainer>
-            <Row>
-              <Heading>&lt;about&gt;</Heading>
-            </Row>
-            <Row>
-              <Column>
-                <Image sizes={this.props.data.thomas.sizes} />
-              </Column>
-              <Column>
-                <p>
-                  Hello! I'm Thomas Chang, a developer currently based in New
-                  York City, New York.
-                </p>
-                <p>
-                  I was once on the path to become a Physical Therapist until I
-                  became intrigued by the world of programming. A little while
-                  later, I attended DevBootcamp and became fully immersed in
-                  development. Shortly after DevBootcamp, I worked briefly at
-                  Microsoft through the LEAP Apprenticeship program.
-                </p>
-                <p />
-                <p>
-                  Outside of development, I enjoy weightlifting, playing indoor
-                  volleyball, singing, and jamming out on the guitar.
-                </p>
-                <p>
-                  Check out my resume and{' '}
-                  <a href="https://www.linkedin.com/in/thomaschangusa">
-                    LinkedIn
-                  </a>
-                </p>
+        <Heading>&lt;about&gt;</Heading>
+        <ColContainer>
+          <Row />
+          <Row>
+            <Column>
+              <Image sizes={this.props.data.thomas.sizes} />
+            </Column>
+            <Column>
+              <p>
+                Hello! I'm Thomas Chang, a developer currently based in New York
+                City, New York.
+              </p>
+              <p>
+                I was once on the path to become a Physical Therapist until I
+                became intrigued by the world of programming. A little while
+                later, I attended DevBootcamp and became fully immersed in
+                development. Shortly after DevBootcamp, I worked briefly at
+                Microsoft through the LEAP Apprenticeship program.
+              </p>
+              <p />
+              <p>
+                Outside of development, I enjoy weightlifting, playing indoor
+                volleyball, singing, and jamming out on the guitar.
+              </p>
+              <p>
+                Check out my resume and{' '}
+                <a href="https://www.linkedin.com/in/thomaschangusa">
+                  LinkedIn
+                </a>
+              </p>
 
-                <a href="mailto:email@example.com">tomchang93@gmail.com</a>
-              </Column>
-            </Row>
+              <a href="mailto:email@example.com">tomchang93@gmail.com</a>
+            </Column>
+          </Row>
 
-            <Column />
-          </ColContainer>
-        </Container>
+          <Column />
+        </ColContainer>
       </Section>
     );
   }

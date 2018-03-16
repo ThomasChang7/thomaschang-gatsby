@@ -1,21 +1,33 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import styled from 'styled-components';
+import Container from '../components/Container';
+
+const Heading = styled.h1`
+  text-align: center;
+`;
+
+const Blah = styled.div`
+  text-align: center;
+`;
 
 export default ({ data }) => {
-  console.log(data);
+  const count = data.allMarkdownRemark.totalCount;
   return (
     <div>
-      <h1>Pandas</h1>
-      <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+      <Heading>&lt;blog&gt;</Heading>
+      <h4>
+        {count} Post{count > 1 ? 's' : ''}
+      </h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div>
+        <Blah>
           <Link to={node.fields.slug}>
             <h3>
               {node.frontmatter.title} <span>— {node.frontmatter.date}</span>
             </h3>
             <p>{node.excerpt}</p>
           </Link>
-        </div>
+        </Blah>
       ))}
     </div>
   );
