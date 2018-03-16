@@ -54,7 +54,7 @@ class TemplateWrapper extends Component {
   scrollHandle() {
     let scrolledDown;
     const y = window.scrollY;
-    scrolledDown = y > 30 ? true : false;
+    scrolledDown = y > 20 ? true : false;
     this.setState({
       scrolledDown
     });
