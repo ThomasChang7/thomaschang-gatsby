@@ -10,12 +10,13 @@ const SiteHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 2.5rem;
+  height: 3em;
   left: 0;
   z-index: 1;
   transition: all 0.5s ease;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+
   margin-left: ${props => (props.fixed ? `5%` : `0`)};
   top: ${props => (props.fixed ? `1rem` : `0`)};
   width: ${props => (props.fixed ? `90%` : `100%`)};
@@ -50,7 +51,7 @@ const Name = styled.h3`
   margin: 0;
   margin-left: 0.5rem;
   padding: 0;
-  font-size: 1.3rem;
+  font-size: 1rem;
   letter-spacing: 0.1rem;
   position: relative;
   ${media.tablet`
@@ -66,10 +67,14 @@ const Name = styled.h3`
 
 const NameLink = styled(Link)``;
 const LogoWrapper = styled.div`
+  display: none;
+
+  ${media.tablet`
   flex: 1;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   position: relative;
+  `};
 `;
 const Logo = styled.h3`
   margin: 0;
@@ -109,6 +114,7 @@ const NavLink = styled(Link)`
   color: ${props => (props.color ? props.color : 'black')};
   font-size: ${props => (props.fontSize ? props.fontSize : '')};
   padding: ${props => (props.padding ? props.padding : '0')};
+
   &:hover {
     color: #8fbbbc;
   }
@@ -127,7 +133,7 @@ const NavLink = styled(Link)`
   &:hover:after {
     width: 100%;
     left: 0;
-    opacity: 0.6;
+    opacity: 0.3;
     background: #008080;
   }
   &.${`active`} {
@@ -139,7 +145,7 @@ const NavLink = styled(Link)`
 const MenuWrapper = styled.div`
   flex: 1;
   display: flex;
-  margin-right: 0.5rem;
+  position: relative;
   justify-content: flex-end;
 
   ${media.tablet`
@@ -161,13 +167,15 @@ const Menu = styled.div`
 
 const MenuLinkWrap = styled.div`
   position: relative;
-  padding: 6%;
+  padding: 2%;
   &:hover {
-    background-color: rgba(30, 30, 30, 0.55);
+    background-color: rgba(75, 75, 75, 0.6);
     transition: 0.3s;
   }
-  height: 15%;
+
   display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Content = styled.div`
@@ -176,7 +184,7 @@ const Content = styled.div`
   width: 100%;
   align-items: stretch;
   display: flex;
-
+  top: 10%;
   flex-direction: column;
 
   /* Required for text-overflow to do anything */
@@ -186,6 +194,23 @@ const Content = styled.div`
 
 const Collapse = styled.div`
   flex: 1;
+`;
+
+const MenuButton = styled.button`
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  position: relative;
+  & > img {
+    margin: 0 0 0.2em;
+    padding: 0;
+    opacity: 0.7;
+    text-align: center;
+    position: relative;
+  }
 `;
 
 const HeaderLinks = [
@@ -277,9 +302,9 @@ class Header extends Component {
         </NavWrapper>
 
         <MenuWrapper>
-          <button onClick={() => this.toggleMenu()}>
+          <MenuButton onClick={() => this.toggleMenu()}>
             <img src={menu} alt="my image" />
-          </button>
+          </MenuButton>
           <Menu visible={this.state.isOpen}>
             <Content>
               {HeaderLinks.map((link, index, links) => (
@@ -290,8 +315,9 @@ class Header extends Component {
                     exact
                     to={link.url}
                     color="#008080"
-                    fontSize="50px"
-                    padding="25px"
+                    fontSize="40px"
+                    padding="15px"
+                    center
                     onClick={() => this.toggleMenu()}
                   >
                     {link.name}
