@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
-
+import ClickOutside from 'react-click-outside';
 import styled, { css } from 'styled-components';
 import { media } from './Breakpoints';
+import menu from '../images/menu.svg';
 
 const SiteHeader = styled.header`
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 2rem;
+  height: 2.5rem;
   left: 0;
   z-index: 1;
   transition: all 0.5s ease;
@@ -28,11 +29,15 @@ const SiteHeader = styled.header`
 
 const NavWrapper = styled.ul`
   flex: 1;
-  display: flex;
+  display: none;
   list-style-type: none;
   margin: 0;
   padding: 0;
   justify-content: flex-end;
+
+  ${media.tablet`
+    display: flex;
+  `};
 `;
 
 const NameWrapper = styled.div`
@@ -47,6 +52,7 @@ const Name = styled.h3`
   padding: 0;
   font-size: 1.3rem;
   letter-spacing: 0.1rem;
+  position: relative;
   ${media.tablet`
   margin-left: .1em;
 `};
@@ -59,31 +65,33 @@ const Name = styled.h3`
 `;
 
 const NameLink = styled(Link)``;
-
+const LogoWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+`;
 const Logo = styled.h3`
   margin: 0;
   padding: 0;
-  flex: 1;
   text-align: center;
+  position: relative;
 `;
 
 const NavItem = styled.li`
-  margin: 0 0.5em;
   font-size: 1.3em;
   position: relative;
-  display: inline-block;
-  ${media.phone`
-  font-size: .7em;
-`};
+  display: ${props => (props.display ? props.display : 'inline-block')};
+  padding: ${props => (props.padding ? props.padding : '0px')};
   ${media.tablet`
-  font-size: .9em;
+  font-size: .8em;
   margin: 0 0.1em;
 `};
   ${media.desktop`
-  margin: 0 0.6em;
+  margin: 0 0.5em;
 `};
   ${media.giant`
-  margin: 0 .7em;
+  margin: 0 .6em;
   font-size: 1em;
 `};
 `;
@@ -97,29 +105,87 @@ const Divider = styled.li`
 const NavLink = styled(Link)`
   text-decoration: none;
   opacity: 0.8;
-  transition: all 0.1s ease;
-  position: relative;
+  transition: all 0.2s ease;
   color: ${props => (props.color ? props.color : 'black')};
+  font-size: ${props => (props.fontSize ? props.fontSize : '')};
+  padding: ${props => (props.padding ? props.padding : '0')};
+  &:hover {
+    color: #8fbbbc;
+  }
   &:after {
     content: '';
-    position: absolute;
+    position: relative;
     width: 0;
     height: 3px;
     display: block;
     margin-top: 5px;
     right: 0;
     background: #008080;
+
     transition: width 0.2s ease;
   }
   &:hover:after {
     width: 100%;
     left: 0;
-    opacity: 1;
+    opacity: 0.6;
     background: #008080;
   }
   &.${`active`} {
     opacity: 1;
+    color: #8fbbbc;
   }
+`;
+
+const MenuWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  margin-right: 0.5rem;
+  justify-content: flex-end;
+
+  ${media.tablet`
+  display: none;`};
+`;
+
+const Menu = styled.div`
+  height: 100%;
+  width: ${props => (props.visible ? '100%' : '0%')};
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  right: 0;
+  top: 0;
+  background-color: rgb(0, 0, 0); /* Black fallback color */
+  background-color: rgba(30, 30, 30, 0.95); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s;
+`;
+
+const MenuLinkWrap = styled.div`
+  position: relative;
+  padding: 6%;
+  &:hover {
+    background-color: rgba(30, 30, 30, 0.55);
+    transition: 0.3s;
+  }
+  height: 15%;
+  display: flex;
+`;
+
+const Content = styled.div`
+  position: relative;
+
+  width: 100%;
+  align-items: stretch;
+  display: flex;
+
+  flex-direction: column;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+`;
+
+const Collapse = styled.div`
+  flex: 1;
 `;
 
 const HeaderLinks = [
@@ -151,16 +217,30 @@ const HeaderLinks = [
 ];
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-
+  constructor() {
+    super();
     this.state = {
-      show: false
+      isOpen: false
     };
+    this.toggleMenu = this.toggleMenu.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+  }
+
+  toggleMenu() {
+    this.setState(prevState => ({
+      isOpen: !prevState.isOpen
+    }));
+  }
+
+  handleOutsideClick() {
+    if (this.node.contains(e.target)) {
+      return;
+    }
+
+    this.toggleMenu();
   }
 
   render() {
-    console.log(this.props);
     return (
       <SiteHeader fixed={this.props.fixed}>
         <NameWrapper>
@@ -170,11 +250,13 @@ class Header extends Component {
             </NavLink>
           </Name>
         </NameWrapper>
-        <Logo>
-          <NavLink to="/" color="#484848">
-            &lt;t/c&gt;
-          </NavLink>
-        </Logo>
+        <LogoWrapper>
+          <Logo>
+            <NavLink to="/" color="#484848">
+              &lt;t/c&gt;
+            </NavLink>
+          </Logo>
+        </LogoWrapper>
         <NavWrapper>
           {HeaderLinks.map((link, index, links) => (
             <div>
@@ -193,6 +275,32 @@ class Header extends Component {
             </div>
           ))}
         </NavWrapper>
+
+        <MenuWrapper>
+          <button onClick={() => this.toggleMenu()}>
+            <img src={menu} alt="my image" />
+          </button>
+          <Menu visible={this.state.isOpen}>
+            <Content>
+              {HeaderLinks.map((link, index, links) => (
+                <MenuLinkWrap>
+                  <NavLink
+                    activeClassName="active"
+                    id={link.name}
+                    exact
+                    to={link.url}
+                    color="#008080"
+                    fontSize="50px"
+                    padding="25px"
+                    onClick={() => this.toggleMenu()}
+                  >
+                    {link.name}
+                  </NavLink>
+                </MenuLinkWrap>
+              ))}
+            </Content>
+          </Menu>
+        </MenuWrapper>
       </SiteHeader>
     );
   }

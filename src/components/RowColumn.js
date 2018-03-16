@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { media } from './Breakpoints';
 
 const ColContainer = styled.div`
   display: flex;
@@ -7,11 +8,14 @@ const ColContainer = styled.div`
 `;
 
 const Row = styled.div`
-  display: flex;
-  justify-content: space-around;
   margin: auto;
-  flex-wrap: wrap;
+
   padding-bottom: 0;
+  text-align: center;
+  ${media.tablet`
+    display: flex;
+    justify-content: space-around;
+  `};
 `;
 
 const Column = styled.div`

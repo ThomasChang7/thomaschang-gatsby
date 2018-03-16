@@ -1,10 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
 
+const Heading = styled.h1`
+  text-align: center;
+`;
 export default ({ data }) => {
   const post = data.markdownRemark;
   return (
     <div>
-      <h1>{post.frontmatter.title}</h1>
+      <Heading>&lt;blog&gt;</Heading>
+      <Heading>{post.frontmatter.title}</Heading>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </div>
   );
