@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const Heading = styled.h1`
+import Section from '../components/Section';
+const Heading = styled.h2`
   text-align: center;
 `;
+
 export default ({ data }) => {
   const post = data.markdownRemark;
   return (
-    <div>
-      <Heading>&lt;blog&gt;</Heading>
+    <Section>
       <Heading>{post.frontmatter.title}</Heading>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
-    </div>
+      {/* <div dangerouslySetInnerHTML={{ __html: post.html }} /> */}
+      {/* <div>{ReactHtmlParser(post.html)}</div> */}
+    </Section>
   );
 };
 
