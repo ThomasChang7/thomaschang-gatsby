@@ -20,9 +20,6 @@ const Hero = styled.div`
   height: 80vh;
   display: flex;
   align-items: flex-start;
-  ${media.desktop`
-  background-position: center;
-  `};
 `;
 
 const HeroText = styled.div`

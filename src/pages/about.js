@@ -3,14 +3,8 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
-// Import Container component
-import Container from '../components/Container';
-
-// Import Link component
-
 // Import Section component
 import Section from '../components/Section';
-
 // Import typography components
 import { Subheading, Text } from '../components/Typography';
 
@@ -33,7 +27,6 @@ class About extends React.Component {
       <Section centered>
         <Heading>&lt;about&gt;</Heading>
         <ColContainer>
-          <Row />
           <Row>
             <Column>
               <Image sizes={this.props.data.thomas.sizes} />

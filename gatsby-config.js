@@ -31,9 +31,26 @@ module.exports = {
         name: 'images'
       }
     },
-    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          `gatsby-remark-emoji`,
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 590,
+              linkImagesToOriginal: false,
+              sizeByPixelDensity: true
+            }
+          },
+          'gatsby-remark-responsive-iframe'
+        ]
+      }
+    },
     'gatsby-plugin-styled-components',
     'gatsby-transformer-sharp',
+    'gatsby-transformer-pdf',
     'gatsby-plugin-sharp'
   ]
 };

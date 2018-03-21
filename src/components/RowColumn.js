@@ -8,20 +8,21 @@ const ColContainer = styled.div`
 `;
 
 const Row = styled.div`
-  margin: auto;
-
-  padding-bottom: 0;
+  padding: 5px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   ${media.tablet`
-    display: flex;
-    justify-content: space-around;
+    flex-direction: row;
   `};
 `;
 
 const Column = styled.div`
+  margin-right: 5%;
+  margin-bottom: 5%;
   flex: 1;
-  display: flex-start;
-  padding: 0 2rem;
+  text-align: left;
 `;
 
 export { ColContainer, Row, Column };

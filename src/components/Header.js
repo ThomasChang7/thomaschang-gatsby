@@ -16,12 +16,11 @@ const SiteHeader = styled.header`
   transition: all 0.5s ease;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
-
   margin-left: ${props => (props.fixed ? `5%` : `0`)};
   top: ${props => (props.fixed ? `1rem` : `0`)};
   width: ${props => (props.fixed ? `90%` : `100%`)};
   background-color: ${props =>
-    props.fixed ? `rgba(255, 255, 255, 1)` : `rgba(242, 241, 245, 0.8)`};
+    props.fixed ? `rgba(255, 255, 255, 0)` : `rgba(242, 241, 245, 0.8)`};
   box-shadow: ${props =>
     props.fixed
       ? `none`
@@ -87,7 +86,7 @@ const NavItem = styled.li`
   font-size: 1.3em;
   position: relative;
   display: ${props => (props.display ? props.display : 'inline-block')};
-  padding: ${props => (props.padding ? props.padding : '0px')};
+  padding: ${props => (props.padding ? props.padding : '')};
   ${media.tablet`
   font-size: .8em;
   margin: 0 0.1em;
@@ -113,7 +112,42 @@ const NavLink = styled(Link)`
   transition: all 0.2s ease;
   color: ${props => (props.color ? props.color : 'black')};
   font-size: ${props => (props.fontSize ? props.fontSize : '')};
-  padding: ${props => (props.padding ? props.padding : '0')};
+  padding: ${props => (props.pad ? props.pad : '0px')};
+
+  &:hover {
+    color: #8fbbbc;
+  }
+  &:after {
+    content: '';
+    position: relative;
+    width: 0;
+    height: 3px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #008080;
+
+    transition: width 0.2s ease;
+  }
+  &:hover:after {
+    width: 100%;
+    left: 0;
+    opacity: 0.3;
+    background: #008080;
+  }
+  &.${`active`} {
+    opacity: 1;
+    color: #8fbbbc;
+  }
+`;
+
+const NavLinkOut = styled.a`
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+  color: ${props => (props.color ? props.color : 'black')};
+  font-size: ${props => (props.fontSize ? props.fontSize : '')};
+  padding: ${props => (props.pad ? props.pad : '0px')};
 
   &:hover {
     color: #8fbbbc;
@@ -150,6 +184,10 @@ const MenuWrapper = styled.div`
 
   ${media.tablet`
   display: none;`};
+
+  & > li {
+    padding: 15px;
+  }
 `;
 
 const Menu = styled.div`
@@ -176,6 +214,10 @@ const MenuLinkWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  & > a {
+    padding: 15px;
+  }
 `;
 
 const Content = styled.div`
@@ -237,7 +279,8 @@ const HeaderLinks = [
   },
   {
     name: 'CV',
-    url: '/contact'
+    url:
+      'https://drive.google.com/file/d/19TEtn2mq0H_yGUhOhpwaXu-6LNneu5c1/view?usp=sharing'
   }
 ];
 
@@ -284,17 +327,29 @@ class Header extends Component {
         </LogoWrapper>
         <NavWrapper>
           {HeaderLinks.map((link, index, links) => (
-            <div>
+            <div key={index}>
               <NavItem>
-                <NavLink
-                  activeClassName="active"
-                  id={link.name}
-                  exact
-                  to={link.url}
-                  color="#008080"
-                >
-                  {link.name}
-                </NavLink>
+                {index !== links.length - 1 ? (
+                  <NavLink
+                    activeClassName="active"
+                    id={link.name}
+                    exact
+                    to={link.url}
+                    color="#008080"
+                  >
+                    {link.name}
+                  </NavLink>
+                ) : (
+                  <NavLinkOut
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    id={link.name}
+                    href={link.url}
+                    color="#008080"
+                  >
+                    {link.name}
+                  </NavLinkOut>
+                )}
               </NavItem>
               {index !== links.length - 1 && <Divider>|</Divider>}
             </div>
@@ -308,20 +363,32 @@ class Header extends Component {
           <Menu visible={this.state.isOpen}>
             <Content>
               {HeaderLinks.map((link, index, links) => (
-                <MenuLinkWrap>
-                  <NavLink
-                    activeClassName="active"
-                    id={link.name}
-                    exact
-                    to={link.url}
-                    color="#008080"
-                    fontSize="40px"
-                    padding="15px"
-                    center
-                    onClick={() => this.toggleMenu()}
-                  >
-                    {link.name}
-                  </NavLink>
+                <MenuLinkWrap key={index}>
+                  {index !== links.length - 1 ? (
+                    <NavLink
+                      activeClassName="active"
+                      id={link.name}
+                      exact
+                      to={link.url}
+                      color="#008080"
+                      fontSize="40px"
+                      onClick={() => this.toggleMenu()}
+                    >
+                      {link.name}
+                    </NavLink>
+                  ) : (
+                    <NavLinkOut
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      id={link.name}
+                      href={link.url}
+                      color="#008080"
+                      fontSize="40px"
+                      onClick={() => this.toggleMenu()}
+                    >
+                      {link.name}
+                    </NavLinkOut>
+                  )}
                 </MenuLinkWrap>
               ))}
             </Content>

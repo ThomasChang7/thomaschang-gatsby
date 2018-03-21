@@ -12,11 +12,11 @@ const Container = styled.div`
   `};
 
   ${media.desktop`
-  width: 100%;
+  width: 88%;
   `};
 
   ${media.giant`
-  width: 93%;
+  width: 75%;
   `};
 `;
 export default Container;
