@@ -1,7 +1,120 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import Link, { navigateTo } from 'gatsby-link';
 import Helmet from 'react-helmet';
+import styled from 'styled-components';
+import { media } from '../components/Breakpoints';
 
+const EmailLink = styled.a`
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+  display: inline-block;
+  &:hover {
+    color: #8fbbbc;
+  }
+  &:after {
+    content: '';
+    position: relative;
+    width: 0;
+    height: 3px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #008080;
+
+    transition: width 0.2s ease;
+  }
+  &:hover:after {
+    width: 100%;
+    left: 0;
+    opacity: 0.8;
+    background: #008080;
+  }
+`;
+
+const Input = styled.input`
+  display: flex;
+`;
+
+const ContactSection = styled.div`
+  width: 100%;
+  margin: auto;
+  ${media.tablet`width: 80%;`};
+`;
+
+const FormGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${media.tablet`
+    flex-direction: row;
+  `};
+`;
+
+const InputControl = styled.input`
+  flex: 1;
+
+  font-size: 0.875em;
+
+  height: 50px;
+  padding: 0px 15px 0px 15px;
+
+  background: transparent;
+  outline: none;
+  color: #111111;
+
+  border: solid 1px #8fbbbc;
+
+  border-bottom: none;
+
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background: #8fbbbc;
+    color: #ffffff;
+  }
+  ${media.tablet`border-left: ${props => (props.right ? 'none' : '')};`};
+`;
+
+const TextAreaControl = styled.textarea`
+  flex: 1;
+
+  height: 110px;
+  max-height: 110px;
+  padding: 15px;
+  background: transparent;
+  outline: none;
+
+  color: #111111;
+
+  font-size: 0.875em;
+
+  border: solid 1px #8fbbbc;
+  border-bottom: none;
+  transition: all 0.3s ease-in-out;
+  resize: none;
+  &:hover {
+    background: #8fbbbc;
+    color: #ffffff;
+  }
+`;
+
+const Submit = styled.input`
+  flex: 1;
+
+  padding: 10px;
+
+  font-size: 0.875em;
+  color: #8fbbbc;
+
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: solid 1px #8fbbbc;
+  &:hover {
+    background: #8fbbbc;
+    color: #ffffff;
+  }
+`;
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -24,20 +137,29 @@ export default class ContactForm extends React.Component {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...this.state })
     })
-      .then(() => alert('Success!'))
-      .catch(error => alert(error));
+      .then(navigateTo('/thanks'))
+      .catch(error => console.log(error));
 
     e.preventDefault();
   };
 
   render() {
     return (
-      <div>
-        <h1>Contact</h1>
+      <ContactSection>
+        <p>
+          Feel free to ask me any questions using this form or email me at{' '}
+          <EmailLink
+            rel="noopener noreferrer"
+            target="_blank"
+            href="mailto:tomchang93@gmail.com"
+          >
+            tomchang93@gmail.com
+          </EmailLink>
+        </p>
+
         <form
           name="contact"
           method="post"
-          action="/thanks/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
@@ -47,29 +169,45 @@ export default class ContactForm extends React.Component {
               Don’t fill this out: <input name="bot-field" />
             </label>
           </p>
-          <p>
-            <label>
-              Your name:<br />
-              <input type="text" name="name" onChange={this.handleChange} />
-            </label>
-          </p>
-          <p>
-            <label>
-              Your email:<br />
-              <input type="email" name="email" onChange={this.handleChange} />
-            </label>
-          </p>
-          <p>
-            <label>
-              Message:<br />
-              <textarea name="message" onChange={this.handleChange} />
-            </label>
-          </p>
-          <p>
-            <button type="submit">Send</button>
-          </p>
+          <FormGroup>
+            <InputControl
+              type="text"
+              name="name"
+              placeholder="Name"
+              onChange={this.handleChange}
+            />
+            <InputControl
+              type="email"
+              name="email"
+              placeholder="Email"
+              right
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup />
+          <FormGroup>
+            <InputControl
+              type="subject"
+              name="subject"
+              placeholder="Subject"
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <TextAreaControl
+              data-gramm_editor="false"
+              name="message"
+              placeholder="Message"
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <Submit type="submit" value="Send" />
+          </FormGroup>
         </form>
-      </div>
+      </ContactSection>
     );
   }
 }

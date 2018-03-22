@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link from 'gatsby-link';
+
 import styled from 'styled-components';
 import email from '../images/email.svg';
 import github from '../images/github.svg';
@@ -32,9 +32,11 @@ const FooterItem = styled.li`
   transition: all 0.3s ease;
   &:hover {
     opacity: 0.7;
+
     cursor: pointer;
   }
 `;
+
 class Footer extends Component {
   constructor(props) {
     super();
@@ -45,15 +47,32 @@ class Footer extends Component {
       <FooterContainer>
         <FooterWrapper>
           <FooterItem>
-            <img src={github} />
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://github.com/thomaschang7"
+            >
+              <img src={github} />
+            </a>
           </FooterItem>
           <FooterItem>
-            <img src={linkedin} />
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://linkedin.com/in/thomaschangusa"
+            >
+              <img src={linkedin} />
+            </a>
           </FooterItem>
 
           <FooterItem>
-            {/*<img src={email} />*/}
-            tomchang93@gmail.com
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="mailto:tomchang93@gmail.com"
+            >
+              <img src={email} />
+            </a>
           </FooterItem>
         </FooterWrapper>
       </FooterContainer>
