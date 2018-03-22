@@ -8,7 +8,7 @@ const Section = styled.section`
   padding-top: 3%;
 
   ${media.desktop`
-  width: 75%;
+  width: 70%;
   `};
 
   ${media.giant`width: 80%; `};

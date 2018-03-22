@@ -41,7 +41,7 @@ const HeroText = styled.div`
   }
 
   ${media.phonelandscape`width: 390px`} ${media.tablet`
-    width: 425px;
+    width: 450px;
   `};
 `;
 

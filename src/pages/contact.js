@@ -12,17 +12,44 @@ import Section from '../components/Section';
 
 // Import typography components
 import { Heading, Text } from '../components/Typography';
-
+import ContactForm from '../components/ContactForm';
 import { ColContainer, Row, Column } from '../components/RowColumn';
 
-const ContactLink = styled(Link)`
-  margin-bottom: 32px;
-  display: inline-block;
-  font-size: 16px;
-
-  @media (min-width: 768px) {
-    font-size: 18px;
+const List = styled.ul`
+  list-style: none;
+  margin-left: 0;
+  > li:before {
+    content: '\\0203A \\0020 ';
   }
+
+  > li > a {
+    display: inline-block;
+    &:hover {
+      color: #8fbbbc;
+    }
+    &:after {
+      content: '';
+      position: relative;
+      width: 0;
+      height: 2px;
+      display: block;
+      margin-top: 5px;
+      right: 0;
+      background: #008080;
+
+      transition: width 0.2s ease;
+    }
+    &:hover:after {
+      width: 100%;
+      left: 0;
+      opacity: 0.3;
+      background: #008080;
+    }
+  }
+`;
+
+const Center = styled.div`
+  text-align: center;
 `;
 
 const SocialMediaList = styled.ul`
@@ -51,67 +78,41 @@ export default class Contact extends React.Component {
   render() {
     return (
       <Section centered>
-        <div>
-          <ColContainer>
-            <Row>
-              <Heading>&lt;contact&gt;</Heading>
-            </Row>
-            <Row>
-              <Text>Let's talk! Feel free to shoot me a message!</Text>
-            </Row>
-            <Row>
-              <ContactLink to="tomchang93@gmail.com">
+        <Heading>&lt;contact&gt;</Heading>
+        <ContactForm />
+        <Center>
+          <p>If you have any questions, feel free to contact me!</p>
+          <List>
+            <li>
+              <a
+                href="mailto:tomchang93@gmail.com"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 tomchang93@gmail.com
-              </ContactLink>
-            </Row>
-            <Row>
-              <ul>
-                <li>Github</li>
-                <li>LinkedIn</li>
-              </ul>
-            </Row>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linkedin.com/in/thomaschangusa"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                LinkedIn
+              </a>
+            </li>
 
-            <Text>Follow me on the web:</Text>
-
-            <SocialMediaList>
-              <li>
-                <Link to="">
-                  <div name="twitter" />
-                </Link>
-              </li>
-
-              <li>
-                <Link to="">
-                  <div name="linkedin" />
-                </Link>
-              </li>
-
-              <li>
-                <Link to="">
-                  <div name="behance" />
-                </Link>
-              </li>
-
-              <li>
-                <Link to="">
-                  <div name="dribbble" />
-                </Link>
-              </li>
-
-              <li>
-                <Link to="">
-                  <div name="github" />
-                </Link>
-              </li>
-
-              <li>
-                <Link to="">
-                  <div name="codepen" />
-                </Link>
-              </li>
-            </SocialMediaList>
-          </ColContainer>
-        </div>
+            <li>
+              <a
+                href="https://github.com/thomaschang7"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Github
+              </a>
+            </li>
+          </List>
+        </Center>
       </Section>
     );
   }
