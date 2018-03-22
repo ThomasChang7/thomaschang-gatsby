@@ -3,34 +3,7 @@ import Link, { navigateTo } from 'gatsby-link';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import { media } from '../components/Breakpoints';
-
-const EmailLink = styled.a`
-  text-decoration: none;
-  opacity: 0.8;
-  transition: all 0.2s ease;
-  display: inline-block;
-  &:hover {
-    color: #8fbbbc;
-  }
-  &:after {
-    content: '';
-    position: relative;
-    width: 0;
-    height: 3px;
-    display: block;
-    margin-top: 5px;
-    right: 0;
-    background: #008080;
-
-    transition: width 0.2s ease;
-  }
-  &:hover:after {
-    width: 100%;
-    left: 0;
-    opacity: 0.8;
-    background: #008080;
-  }
-`;
+import OutLink from '../components/OutLink';
 
 const Input = styled.input`
   display: flex;
@@ -148,13 +121,13 @@ export default class ContactForm extends React.Component {
       <ContactSection>
         <p>
           Feel free to ask me any questions using this form or email me at{' '}
-          <EmailLink
+          <OutLink
             rel="noopener noreferrer"
             target="_blank"
             href="mailto:tomchang93@gmail.com"
           >
             tomchang93@gmail.com
-          </EmailLink>
+          </OutLink>
         </p>
 
         <form

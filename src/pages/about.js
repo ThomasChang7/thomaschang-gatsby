@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
+import OutLink from '../components/OutLink';
 
 // Import Section component
 import Section from '../components/Section';
@@ -45,13 +46,29 @@ class About extends React.Component {
                 volleyball, singing, and jamming out on the guitar.
               </p>
               <p>
-                Check out my resume and{' '}
-                <a href="https://www.linkedin.com/in/thomaschangusa">
+                Check out my{' '}
+                <OutLink
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href="https://drive.google.com/file/d/19TEtn2mq0H_yGUhOhpwaXu-6LNneu5c1/view?usp=sharing"
+                >
+                  resume
+                </OutLink>,{' '}
+                <OutLink
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href="https://www.linkedin.com/in/thomaschangusa"
+                >
                   LinkedIn
-                </a>
+                </OutLink>, or shoot me an email at{' '}
+                <OutLink
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href="mailto:tomchang93@gmail.com"
+                >
+                  tomchang93@gmail.com
+                </OutLink>.
               </p>
-
-              <a href="mailto:email@example.com">tomchang93@gmail.com</a>
             </Column>
           </Row>
 

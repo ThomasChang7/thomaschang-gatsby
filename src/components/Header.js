@@ -28,7 +28,7 @@ const SiteHeader = styled.header`
 `;
 
 const NavWrapper = styled.ul`
-  flex: 1;
+  flex: 2;
   display: none;
   list-style-type: none;
   margin: 0;
@@ -41,7 +41,7 @@ const NavWrapper = styled.ul`
 `;
 
 const NameWrapper = styled.div`
-  flex: 1;
+  flex: 2;
   display: flex;
   position: relative;
 `;
@@ -177,7 +177,7 @@ const NavLinkOut = styled.a`
 `;
 
 const MenuWrapper = styled.div`
-  flex: 1;
+  flex: 2;
   display: flex;
   position: relative;
   justify-content: flex-end;
