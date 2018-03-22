@@ -5,13 +5,14 @@ import Container from './Container';
 const Section = styled.section`
   width: 90%;
   margin: auto;
-  padding-top: 3%;
+  padding-top: 1%;
 
   ${media.desktop`
   width: 70%;
   `};
-
   ${media.giant`width: 80%; `};
+
+  width: ${props => (props.width ? props.width : '')};
 `;
 
 export default Section;
