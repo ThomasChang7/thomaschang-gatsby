@@ -41,10 +41,12 @@ const InputControl = styled.input`
   border-bottom: none;
 
   transition: all 0.3s ease-in-out;
+
   &:hover {
     background: #8fbbbc;
     color: #ffffff;
   }
+
   ${media.tablet`border-left: ${props => (props.right ? 'none' : '')};`};
 `;
 
@@ -147,6 +149,7 @@ export default class ContactForm extends React.Component {
               type="text"
               name="name"
               placeholder="Name"
+              required
               onChange={this.handleChange}
             />
             <InputControl
@@ -154,6 +157,7 @@ export default class ContactForm extends React.Component {
               name="email"
               placeholder="Email"
               right
+              required
               onChange={this.handleChange}
             />
           </FormGroup>
@@ -163,6 +167,7 @@ export default class ContactForm extends React.Component {
               type="subject"
               name="subject"
               placeholder="Subject"
+              required
               onChange={this.handleChange}
             />
           </FormGroup>
@@ -172,6 +177,7 @@ export default class ContactForm extends React.Component {
               data-gramm_editor="false"
               name="message"
               placeholder="Message"
+              required
               onChange={this.handleChange}
             />
           </FormGroup>
