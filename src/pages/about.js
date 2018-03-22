@@ -6,13 +6,9 @@ import Img from 'gatsby-image';
 // Import Section component
 import Section from '../components/Section';
 // Import typography components
-import { Subheading, Text } from '../components/Typography';
+import { Heading, Subheading, Text } from '../components/Typography';
 
 import { ColContainer, Row, Column } from '../components/RowColumn';
-
-const Heading = styled.h1`
-  text-align: center;
-`;
 
 const Image = styled(Img)`
   border-radius: 50%;
