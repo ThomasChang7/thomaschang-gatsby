@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 
 const sizes = {
-  giant: 1170,
+  giant: 1281,
   desktop: 992,
   tablet: 768,
+  phonelandscape: 672,
   phone: 375
 };
 

@@ -3,12 +3,12 @@ import { media } from './Breakpoints';
 import Container from './Container';
 
 const Section = styled.section`
-  width: 95%;
+  width: 90%;
   margin: auto;
-  padding-top: 4%;
+  padding-top: 3%;
 
   ${media.desktop`
-  width: 85%;
+  width: 75%;
   `};
 
   ${media.giant`width: 80%; `};

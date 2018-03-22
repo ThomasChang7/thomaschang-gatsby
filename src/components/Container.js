@@ -8,15 +8,15 @@ const Container = styled.div`
   box-sizing: border-box;
 
   ${media.tablet`
-  width: 100%;
+  width: 95%;
   `};
 
   ${media.desktop`
-  width: 88%;
+  width: 94%;
   `};
 
   ${media.giant`
-  width: 75%;
+  width: 90%;
   `};
 `;
 export default Container;

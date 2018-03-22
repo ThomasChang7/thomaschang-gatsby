@@ -39,6 +39,10 @@ const HeroText = styled.div`
     color: white;
     text-shadow: 2px 2px 3px #aaaaaa;
   }
+
+  ${media.phonelandscape`width: 390px`} ${media.tablet`
+    width: 425px;
+  `};
 `;
 
 class IndexPage extends Component {
@@ -52,7 +56,10 @@ class IndexPage extends Component {
         <Container>
           <Hero image={img}>
             <HeroText>
-              <h2>My name is Thomas Chang</h2>
+              <h2>
+                My name is <br />Thomas Chang
+              </h2>
+
               <h2>Software Engineer</h2>
             </HeroText>
           </Hero>
