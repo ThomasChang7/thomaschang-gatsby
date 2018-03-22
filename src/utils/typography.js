@@ -43,8 +43,8 @@ judahTheme.overrideThemeStyles = ({ rhythm }) => ({
     lineHeight: rhythm(0.5)
   },
   p: {
-    letterSpacing: rhythm(0.08),
-    color: '#181818'
+    color: '#181818',
+    fontSize: rhythm(0.6)
   },
   li: { fontFamily: 'PT Sans Narrow' }
 });
