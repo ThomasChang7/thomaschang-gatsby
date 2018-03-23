@@ -66,8 +66,8 @@ class TemplateWrapper extends Component {
         <Helmet
           title="Thomas Chang Portfolio"
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' }
+            { name: 'description', content: 'Thomas Chang' },
+            { name: 'keywords', content: 'Thomas Chang Software Engineer' }
           ]}
         />
         <Header fixed={this.state.scrolledDown ? false : true} />
