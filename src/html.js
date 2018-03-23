@@ -7,8 +7,7 @@ export default class HTML extends React.Component {
       css = (
         <style
           id="gatsby-inlined-css"
-          dangerouslySetInnerHTML={{ __html: inlinedStyles }}
-        />
+          dangerouslySetInnerHTML={{__html: require('!raw!../public/styles.css'),
       );
     }
     return (
