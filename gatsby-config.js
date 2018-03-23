@@ -48,6 +48,24 @@ module.exports = {
         ]
       }
     },
+    {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: './src/images/tomato.png',
+        injectHTML: true,
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          twitter: false,
+          yandex: false,
+          windows: false
+        }
+      }
+    },
     'gatsby-plugin-styled-components',
     'gatsby-transformer-sharp',
     'gatsby-transformer-pdf',
