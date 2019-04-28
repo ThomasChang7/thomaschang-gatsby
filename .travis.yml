@@ -3,3 +3,6 @@ deploy:
   secret_acess_key:
     secure: Sx2AxOiUeVdFIerLdTfQw8xDnl/8jz0Zouu1/HAGw2S/8op2BK+GPzTBcFY/sNLko/U/IxYGnrCdXmAV8rEhpSwNWPW0ywsXC3CQV7bQpS6VeMTUo07527jIrJ6enJJGDRDTGWvDL241mGVcX2WcR3a5xfvVQqaQ16DI1d8H6sJhTEvFPRSBm7YFSnQ8F2fLic6Uzc9dHwXqdSrCgPzQWEoAMv+E/tDUHgjsox8h/CEAJdLGZqnUQdSZB523w/z6CYMd0U5PDytzrlHgE+5GwvPhk5khe5NhulR05pHOULzXLxsZM7oQb/cRdNet0Igey5ueKOSd76vMNDwR+lVbjT7ACpGdi6DxniRUw26/aWKo4nKW921c+dyEJasfpfTP7sjlxKCkKpIOL1r9JDXglhPtA6JA6QwAMupEpxHzgNMcYf4vbxCmqR/QRcIKfj2im77jbZj7ZoQsZGtYWrk6BASj/hR3q3w/R1eG+rHmJ/pKfsGH4zgM+ZI0bfyNd3QIHVHCeNUQ7EIHkEPyoaCMEduDwaMJuiCLyqgqzcemIEFlSDFlw64DKfscE/Kt+U2RyQARBdPa+tQ1UJQCWVG7kd1rvcXZ/Girtt2qfbRVbvAlWYCYAcsvzNT/9SSHXFR/9rtMxo9ieABchGwh8AhsOm0KauXjz9sK32Bs8mbgxGA=
   bucket: thomaschang.io
+  language: node_js
+  node_js:
+    - node

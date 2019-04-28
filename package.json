@@ -38,7 +38,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "exit 0"
   },
   "devDependencies": {
     "babel-plugin-root-import": "^5.1.0",
@@ -52,5 +52,13 @@
     "eslint-plugin-react": "^7.6.1",
     "jest": "^22.3.0",
     "prettier": "^1.10.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasChang7/thomaschang-gatsby.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ThomasChang7/thomaschang-gatsby/issues"
+  },
+  "homepage": "https://github.com/ThomasChang7/thomaschang-gatsby#readme"
 }
